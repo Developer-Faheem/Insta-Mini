@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_c/Widgets/like_animation.dart';
 import 'package:instagram_c/provider/user_provider.dart';
 import 'package:instagram_c/resources/firestore_methods.dart';
+import 'package:instagram_c/screens/comments_screen.dart';
 import 'package:instagram_c/utils/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -149,21 +150,27 @@ class _PostCardState extends State<PostCard> {
                 isAnimating: widget.snap['likes'].contains(currentUser.uid),
                 smallLike: true,
                 child: IconButton(
-                  onPressed: () async {
-                    await FireStoreMethods().likePost(
-                        postId: widget.snap['postId'],
-                        uid: currentUser.uid,
-                        likes: widget.snap['likes']);
-                    print(userProvider.getUser.uid);
-                  },
-                  icon: const Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                ),
+                    onPressed: () async {
+                      await FireStoreMethods().likePost(
+                          postId: widget.snap['postId'],
+                          uid: currentUser.uid,
+                          likes: widget.snap['likes']);
+                      print(userProvider.getUser.uid);
+                    },
+                    icon: widget.snap['likes'].contains(currentUser.uid)
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          )
+                        : const Icon(
+                            Icons.favorite_border,
+                          )),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen()));
+                },
                 icon: const Icon(
                   Icons.comment_outlined,
                 ),

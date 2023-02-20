@@ -42,8 +42,9 @@ dependencies:
   flutter_svg: ^1.1.6 # for svg type pictures
   image_picker: ^0.8.6
   provider: ^6.0.5
-  uuid: ^3.0.7
+  uuid: ^3.0.7 #generation of the random value
   intl: ^0.18.0 # for the date to be formated
+  flutter_staggered_grid_view: ^0.4.1 #for making grid layout
 
 dev_dependencies:
   flutter_test:

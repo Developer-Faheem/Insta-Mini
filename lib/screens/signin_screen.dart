@@ -4,6 +4,7 @@ import 'package:instagram_c/Widgets/textFieldInput.dart';
 import 'package:instagram_c/resources/auth_methods.dart';
 import 'package:instagram_c/screens/Signup_scrteen.dart';
 import 'package:instagram_c/utils/colors.dart';
+import 'package:instagram_c/utils/global_variables.dart';
 import 'package:instagram_c/utils/utils.dart';
 import 'package:instagram_c/responsive_layouts/responsive_layouts.dart';
 
@@ -57,7 +58,10 @@ class _SigninScreenState extends State<SigninScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          padding: MediaQuery.of(context).size.width > webScreenSize
+              ? EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 3)
+              : const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

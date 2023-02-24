@@ -4,6 +4,7 @@ import 'package:instagram_c/provider/user_provider.dart';
 import 'package:instagram_c/resources/firestore_methods.dart';
 import 'package:instagram_c/screens/comments_screen.dart';
 import 'package:instagram_c/utils/colors.dart';
+import 'package:instagram_c/utils/global_variables.dart';
 import 'package:instagram_c/utils/utils.dart';
 import 'package:intl/intl.dart'; //formatting date
 import 'package:provider/provider.dart';
@@ -54,9 +55,14 @@ class _PostCardState extends State<PostCard> {
     // var userid= FirebaseFirestore.instance.collection('users')
     // final model.User user = Provider.of<UserProvider>(context).getUser;
     // final UserProvider userProvider = Provider.of<UserProvider>(context);
+    var width = MediaQuery.of(context).size.width;
 
     return Container(
-      color: mobileBackgroundColor,
+      decoration: BoxDecoration(
+          border: Border.all(
+              color:
+                  width > webScreenSize ? secondaryColor : webBackgroundColor)),
+      // color: mobileBackgroundColor,
       padding: EdgeInsets.symmetric(
         vertical: 10,
       ),

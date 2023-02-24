@@ -33,7 +33,7 @@ class _ResponsiveLayoutsState extends State<ResponsiveLayouts> {
         if (constraints.maxWidth < webScreenSize) {
           return MobileScreen();
         } else {
-          return WebScreen();
+          return WebScreenLayout();
         }
       },
     );

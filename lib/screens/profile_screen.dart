@@ -98,7 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             backgroundImage: //NetworkImage(
                                 // userData['photoUrl'].toString()
                                 NetworkImage(//currentUser.photoURL.toString()
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbnhvB5mOyuyQ-a4R980CZEsNCJakr_ye-n0Mvqsb8SA&s'),
+                                    'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-person-icon.png'),
                             radius: 40,
                           ),
                           Expanded(
@@ -139,19 +139,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             ),
                                           )
                                         : isFollowing
-                                            ? FollowButton(
-                                                backgroundColor: Colors.white,
-                                                borderColor: Colors.grey,
-                                                text: 'Unfollow',
-                                                textColor: Colors.black,
-                                                function: () {},
+                                            ? Expanded(
+                                                child: FollowButton(
+                                                  backgroundColor: Colors.white,
+                                                  borderColor: Colors.grey,
+                                                  text: 'Unfollow',
+                                                  textColor: Colors.black,
+                                                  function: () {},
+                                                ),
                                               )
-                                            : FollowButton(
-                                                backgroundColor: Colors.blue,
-                                                borderColor: Colors.blue,
-                                                text: 'Follow',
-                                                textColor: Colors.white,
-                                                function: () {},
+                                            : Expanded(
+                                                child: FollowButton(
+                                                  backgroundColor: Colors.blue,
+                                                  borderColor: Colors.blue,
+                                                  text: 'Follow',
+                                                  textColor: Colors.white,
+                                                  function: () {},
+                                                ),
                                               )
                                   ],
                                 ),

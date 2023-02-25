@@ -121,19 +121,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   children: [
                                     FirebaseAuth.instance.currentUser!.uid ==
                                             currentUser.uid
-                                        ? FollowButton(
-                                            backgroundColor:
-                                                mobileBackgroundColor,
-                                            borderColor: Colors.grey,
-                                            text: 'Sign out',
-                                            textColor: primaryColor,
-                                            function: () async {
-                                              await AuthMethods().signOut();
-                                              Navigator.of(context).pushReplacement(
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const SigninScreen()));
-                                            },
+                                        ? Expanded(
+                                            child: FollowButton(
+                                              backgroundColor:
+                                                  mobileBackgroundColor,
+                                              borderColor: Colors.grey,
+                                              text: 'Sign out',
+                                              textColor: primaryColor,
+                                              function: () async {
+                                                await AuthMethods().signOut();
+                                                Navigator.of(context)
+                                                    .pushReplacement(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const SigninScreen()));
+                                              },
+                                            ),
                                           )
                                         : isFollowing
                                             ? FollowButton(
